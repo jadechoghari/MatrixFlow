@@ -9,31 +9,8 @@ MatrixFlow is strategically positioned to bridge this disconnect. It simplifies 
 
 Comparison table between the functions inside MatrixFlow and their similar Python functions, particularly with the `numpy` library, which is commonly used for matrix operations in Python.
 
-``` latex
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Swift Function} & \textbf{Python (numpy) Equivalent} & \textbf{Math Representation} \\
-\hline
-ConvertMultiArrayToArray4d & \texttt{numpy.asarray()} (with shape adjustment) & \( A \in \mathbb{R}^{w \times x \times y \times z} \) \\
-\hline
-MultiplyMatrices & \texttt{numpy.dot()} & \( C = A \times B \) where \( A \in \mathbb{R}^{m \times n} \) and \( B \in \mathbb{R}^{n \times p} \) \\
-\hline
-ReshapeToMatrix & \texttt{numpy.reshape()} & \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) \\
-\hline
-SigmoidMatrix & \( \frac{1}{1 + \texttt{numpy.exp(-matrix)}} \) & \( S(x) = \frac{1}{1 + e^{-x}} \) \\
-\hline
-ConvertMultiArrayToArray & \texttt{numpy.asarray()} (with shape adjustment) & \( A \in \mathbb{R}^{w \times x \times y} \) \\
-\hline
-Transpose & \texttt{numpy.transpose()} & \( B = A^T \) where \( A \in \mathbb{R}^{m \times n} \) \\
-\hline
-ReshapeArray & \texttt{numpy.reshape()} & \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) \\
-\hline
-Slice & \texttt{matrix[:5]} & \( B = A_{[:k]} \) where \( k \) is the number of rows/columns to slice \\
-\hline
-CombineMatrix & \texttt{numpy.hstack()} & \( C = \text{hstack}(A, B) \) for horizontally stacking matrices \( A \) and \( B \) \\
-\hline
-\end{tabular}
-```
+![table](https://latex.codecogs.com/svg.latex?\begin{tabular}{|c|c|c|}\hline\textbf{Swift Function} & \textbf{Python (numpy) Equivalent} & \textbf{Math Representation} \\\hline ConvertMultiArrayToArray4d & \texttt{numpy.asarray()} (with shape adjustment) & \( A \in \mathbb{R}^{w \times x \times y \times z} \) \\\hline MultiplyMatrices & \texttt{numpy.dot()} & \( C = A \times B \) where \( A \in \mathbb{R}^{m \times n} \) and \( B \in \mathbb{R}^{n \times p} \) \\\hline ReshapeToMatrix & \texttt{numpy.reshape()} & \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) \\\hline SigmoidMatrix & \( \frac{1}{1 + \texttt{numpy.exp(-matrix)}} \) & \( S(x) = \frac{1}{1 + e^{-x}} \) \\\hline ConvertMultiArrayToArray & \texttt{numpy.asarray()} (with shape adjustment) & \( A \in \mathbb{R}^{w \times x \times y} \) \\\hline Transpose & \texttt{numpy.transpose()} & \( B = A^T \) where \( A \in \mathbb{R}^{m \times n} \) \\\hline ReshapeArray & \texttt{numpy.reshape()} & \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) \\\hline Slice & \texttt{matrix[:5]} & \( B = A_{[:k]} \) where \( k \) is the number of rows/columns to slice \\\hline CombineMatrix & \texttt{numpy.hstack()} & \( C = \text{hstack}(A, B) \) for horizontally stacking matrices \( A \) and \( B \) \\\hline \end{tabular})
+
 
 
 Its vast potential makes it a valuable asset for diverse applications, from gaming to machine learning development, all within the Swift ecosystem. 
