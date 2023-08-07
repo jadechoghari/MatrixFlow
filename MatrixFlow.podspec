@@ -5,10 +5,7 @@ Pod::Spec.new do |spec|
   spec.summary      = "A CocoaPods library for swift-driven matrix multiplications"
   spec.swift_versions    = '5.0'
   
-  spec.description  = <<-DESC
-  MatrixFlow helps you perform multiplication/additions and more on MLMultiarray matrices
-                   DESC
-
+  spec.description = File.read("README.md")
   spec.homepage     = "https://github.com/jadechoghari/MatrixFlow.git"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
 
