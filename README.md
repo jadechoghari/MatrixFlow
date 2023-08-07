@@ -14,7 +14,7 @@ Comparison table between the functions inside MatrixFlow and their similar Pytho
 
 | **Swift Function**       | **Python (numpy) Equivalent** | **Math Representation** |
 |--------------------------|-------------------------------|-------------------------|
-| ConvertMultiArrayToArray4d | `numpy.asarray()` (with shape adjustment) | <img src="https://latex.codecogs.com/gif.latex?A \in \mathbb{R}^{w \times x \times y \times z} \)" />  |
+| ConvertMultiArrayToArray4d | `numpy.asarray()` (with shape adjustment) | <img src="https://latex.codecogs.com/gif.latex?A%20\in%20\mathbb{R}^{w%20\times%20x%20\times%20y%20\times%20z}%20\" />  |
 | MultiplyMatrices        | `numpy.dot()` | <img src="https://latex.codecogs.com/gif.latex?C = A \times B \text{ where } A \in \mathbb{R}^{m \times n} \text{ and } B \in \mathbb{R}^{n \times p}" />  |
 | ReshapeToMatrix         | `numpy.reshape()` | <img src="https://latex.codecogs.com/gif.latex?C = B = \text{reshape}(A, (m, n \times o)) \text{ where } A \in \mathbb{R}^{m \times n \times o}" />  |
 | SigmoidMatrix           | \( \frac{1}{1 + \texttt{numpy.exp(-matrix)}} \) | <img src="https://latex.codecogs.com/gif.latex?S(x) = \frac{1}{1 + e^{-x}}" /> |
