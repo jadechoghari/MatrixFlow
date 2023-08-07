@@ -41,9 +41,7 @@ public final class MatrixFlow {
         return array
     }
     
-    //Multiply matrices
-    
-    
+    //Multiply 2d matrices
     public func multiplyMatrices(_ matrixA: [[Decimal]], _ matrixB: [[Decimal]]) -> [[Decimal]]? {
         let rowsA = matrixA.count
         let columnsA = matrixA[0].count
@@ -81,7 +79,7 @@ public final class MatrixFlow {
         return resultMatrix
     }
     
-    // to 160 x 160
+    // from 25600 to 160 x 160
     public func reshapeToMatrix(array: [Decimal], rows: Int, cols: Int) -> [[Decimal]] {
         var matrix: [[Decimal]] = []
         
@@ -95,7 +93,7 @@ public final class MatrixFlow {
         return matrix
     }
     
-    
+    //apply sigmoid function to a 2d matrix
     public func sigmoidMatrix(_ matrix: [[Decimal]]) -> [[Decimal]] {
         
         func sigmoid(_ x: Decimal) -> Decimal {
@@ -112,7 +110,6 @@ public final class MatrixFlow {
     
     
     //convert MLMultiarray to a normal Swift Array
-    
     public func convertMultiArrayToArray(_ multiArray: MLMultiArray) -> [[[Decimal]]] {
         let shape = multiArray.shape.map { $0.intValue }
         var currentIndex = [NSNumber](repeating: 0, count: shape.count)
@@ -139,7 +136,7 @@ public final class MatrixFlow {
         
         return array
     }
-    
+    //transpose a 2d array
     public func transpose<T>(_ array: [[T]]) -> [[T]] {
         guard let rowCount = array.first?.count else {
             return []
@@ -156,14 +153,14 @@ public final class MatrixFlow {
         return transposedArray
     }
     
-    //Convert 4d matrix from (3 x 4 x 2) to (3 x (4x2))
+    //Convert 3d matrix from (3 x 4 x 2) to (3 x (4x2))
     public func reshapeArray(inputArray: [[[Decimal]]]) -> [[Decimal]] {
         return inputArray.map { subArray in
             return subArray.flatMap { $0 }
         }
     }
     
-    //slicing
+    //slicing 2d
     public func slice(inputArray: [[Decimal]], start: Int, end: Int) -> [[Decimal]] {
         return inputArray.map { Array($0[start..<end]) }
     }
