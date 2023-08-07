@@ -9,7 +9,7 @@ MatrixFlow is strategically positioned to bridge this disconnect. It simplifies 
 
 Comparison table between the functions inside MatrixFlow and their similar Python functions, particularly with the `numpy` library, which is commonly used for matrix operations in Python.
 
-```latex
+``` latex
 \begin{tabular}{|c|c|c|}
 \hline
 \textbf{Swift Function} & \textbf{Python (numpy) Equivalent} & \textbf{Math Representation} \\
