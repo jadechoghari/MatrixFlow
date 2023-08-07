@@ -122,7 +122,7 @@ for i in 0..<shape[0].intValue {
     }
 }
 
-let fourArray = matrixFlow.convertMultiArrayToArray4d(multiArray)
+let fourArray = MatrixFlow.convertMultiArrayToArray4d(multiArray)
 ```
 
 **Expected Result of type :** 
@@ -146,7 +146,7 @@ let matrixA: [[Decimal]] = [[1, 2, 3], [4, 5, 6]]
 let matrixB: [[Decimal]] = [[7, 8], [9, 10], [11, 12]]
 
 //Perform multiplication
-let result = matrixFlow.multiplyMatrices(matrixAA, matrixBB)
+let result = MatrixFlow.multiplyMatrices(matrixAA, matrixBB)
 
 //expected results of type [[Decimal]]: [[58, 64], [139, 154]]
 ```
@@ -163,7 +163,7 @@ let flattenedArray: [Decimal] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 
 let rows = 5
 let columns = 5
 // specifiy the number of rows and columns you'll need accordingly
-let result = matrixFlow.reshapeToMatrix(array: flattenedArray, rows: rows, cols: columns)
+let result = MatrixFlow.reshapeToMatrix(array: flattenedArray, rows: rows, cols: columns)
 
 //expected result of type [[Decimal]]
 // [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]
@@ -186,7 +186,7 @@ let matrix: [[Decimal]] = [
     [7.0, 8.0, 9.0]
 ]
 
-let result: [[Decimal]] = matrixFlow.sigmoidMatrix(matrix)
+let result: [[Decimal]] = MatrixFlow.sigmoidMatrix(matrix)
 //expected result: [[Decimal]] = [[0.8581489350995122176, 0.880797077977882624, 0.9525741268224335872], [0.9926084586557181952, 0.9933071490757152768, 0.9975273768433655808], [0.9990889488055998464, 0.9996646498695335936, 0.9998766054240137216]]
 ```
 
@@ -212,7 +212,7 @@ for i in 0..<shape[0].intValue {
         }
     }
 }
-let result: [[[Decimal]]] = matrixFlow.convertMultiArrayToArray(multiArray)
+let result: [[[Decimal]]] = MatrixFlow.convertMultiArrayToArray(multiArray)
 
 // expected result: [[[Decimal]]] = [[[0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5]]]
 ```
@@ -229,7 +229,7 @@ This function transposes a 2D matrix, essentially swapping its rows with columns
 imort MatrixFlow
 let array: [[Decimal]] = [[0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5]]
 
-let result = matrixFlow.transpose(array)
+let result = MatrixFlow.transpose(array)
 
 //expected result: [[Decimal]] = [[0, 1, 2], [1, 2, 3], [2, 3, 4], [3, 4, 5]]
 ```
@@ -246,7 +246,7 @@ This function reshapes a 3D matrix by merging its last two dimensions.
 import MatrixFlow
 let array: [[[Decimal]]] = [[[1.1, 1.2], [1.3, 1.4], [1.5, 1.6], [1.7, 1.8]], [[2.1, 2.2], [2.3, 2.4], [2.5, 2.6], [2.7, 2.8]], [[3.1, 3.2], [3.3, 3.4], [3.5, 3.6], [3.7, 3.8]]]
 
-let result = matrixFlow.reshapeArray(inputArray: array)
+let result = MatrixFlow.reshapeArray(inputArray: array)
 
 //expected result: [[Decimal]] = [[1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8], [2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8], [3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8]]
 ```
@@ -266,7 +266,7 @@ let input: [[Decimal]] = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 50], [11, 12, 13, 14, 
 let start = 0
 let end = 5
 
-let result = matrixFlow.slice(inputArray: input, start: 0, end: 5)
+let result = MatrixFlow.slice(inputArray: input, start: 0, end: 5)
 
 //expected result: [[Decimal]] = [[1, 2, 3, 4, 5], [11, 12, 13, 14, 15], [21, 22, 23, 24, 25]]
 ```
@@ -284,7 +284,7 @@ This function is analogous to the numpy `hstack` operation. It horizontally stac
 let arrayA: [[Decimal]] = [[1, 2, 3, 4, 5], [11, 12, 13, 14, 15], [21, 22, 23, 24, 25]]
 let arrayB: [[Decimal]] = [[6, 7, 8, 9, 10, 50], [16, 17, 18, 19, 20, 15], [26, 27, 28, 29, 30, 16]]
 
-let result = matrixFlow.combineMatrix(boxes: arrayA, masks: arrayB)
+let result = MatrixFlow.combineMatrix(boxes: arrayA, masks: arrayB)
 
 //expected results: [[Decimal]] = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 50], [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 15], [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 16]]
 ```
