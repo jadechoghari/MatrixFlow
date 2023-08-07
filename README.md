@@ -1,6 +1,9 @@
 # MatrixFlow
 A CocoaPods library for swift-driven matrix and image operations, offering seamless integration of CoreML and Accelerate frameworks for optimized machine learning and mathematical computations.
 
+<img src="https://developer.apple.com/assets/elements/icons/create-ml-framework/create-ml-framework-96x96_2x.png"  width="10%" height="10%">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Swift_logo.svg/1024px-Swift_logo.svg.png"  width="20%" height="20%">
+
 MatrixFlow is a sophisticated Swift library that harnesses the power of CoreML and the Accelerate framework. Its primary purpose is to offer user-friendly solutions for intricate challenges in matrix manipulation, image processing, machine learning processing, and beyond. 
 
 The Accelerate framework offers exposure to SIMD instructions inherent in contemporary CPUs, which in turn, markedly enhances the performance of certain computational tasks. Regrettably, due to its somewhat arcane nature and less-than-intuitive APIs, many developers bypass the Accelerate framework. This oversight is unfortunate, considering the potential performance enhancements that many applications stand to gain from its integration. 
@@ -11,17 +14,16 @@ Comparison table between the functions inside MatrixFlow and their similar Pytho
 
 | **Swift Function**       | **Python (numpy) Equivalent** | **Math Representation** |
 |--------------------------|-------------------------------|-------------------------|
-| ConvertMultiArrayToArray4d | `numpy.asarray()` (with shape adjustment) | \( A \in \mathbb{R}^{w \times x \times y \times z} \) |
-| MultiplyMatrices        | `numpy.dot()` | \( C = A \times B \) where \( A \in \mathbb{R}^{m \times n} \) and \( B \in \mathbb{R}^{n \times p} \) |
-| ReshapeToMatrix         | `numpy.reshape()` | \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) |
-| SigmoidMatrix           | \( \frac{1}{1 + \texttt{numpy.exp(-matrix)}} \) | \( S(x) = \frac{1}{1 + e^{-x}} \) |
-| ConvertMultiArrayToArray | `numpy.asarray()` (with shape adjustment) | \( A \in \mathbb{R}^{w \times x \times y} \) |
-| Transpose               | `numpy.transpose()` | \( B = A^T \) where \( A \in \mathbb{R}^{m \times n} \) |
-| ReshapeArray            | `numpy.reshape()` | \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) |
-| Slice                   | `matrix[:5]` | \( B = A_{[:k]} \) where \( k \) is the number of rows/columns to slice |
-| CombineMatrix           | `numpy.hstack()` | \( C = \text{hstack}(A, B) \) for horizontally stacking matrices \( A \) and \( B \) |
+| ConvertMultiArrayToArray4d | `numpy.asarray()` (with shape adjustment) | <img src="https://latex.codecogs.com/gif.latex?A \in \mathbb{R}^{w \times x \times y \times z} \)" />  |
+| MultiplyMatrices        | `numpy.dot()` | <img src="https://latex.codecogs.com/gif.latex?C = A \times B \text{ where } A \in \mathbb{R}^{m \times n} \text{ and } B \in \mathbb{R}^{n \times p}" />  |
+| ReshapeToMatrix         | `numpy.reshape()` | <img src="https://latex.codecogs.com/gif.latex?C = B = \text{reshape}(A, (m, n \times o)) \text{ where } A \in \mathbb{R}^{m \times n \times o}" />  |
+| SigmoidMatrix           | \( \frac{1}{1 + \texttt{numpy.exp(-matrix)}} \) | <img src="https://latex.codecogs.com/gif.latex?S(x) = \frac{1}{1 + e^{-x}}" /> |
+| ConvertMultiArrayToArray | `numpy.asarray()` (with shape adjustment) | <img src="https://latex.codecogs.com/gif.latex?A \in \mathbb{R}^{w \times x \times y}" /> |
+| Transpose               | `numpy.transpose()` | <img src="https://latex.codecogs.com/gif.latex?\( B = A^T \) where \( A \in \mathbb{R}^{m \times n} \)"/> |
+| ReshapeArray            | `numpy.reshape()` | <img src="https://latex.codecogs.com/gif.latex?\( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \)"/> |
+| Slice                   | `matrix[:5]` | <img src="https://latex.codecogs.com/gif.latex?B = A_{[:k]} \text{ where } k \text{ is the number of rows/columns to slice}"/> |
+| CombineMatrix           | `numpy.hstack()` | <img src="https://latex.codecogs.com/gif.latex?C = \text{hstack}(A, B) \text{ for horizontally stacking matrices } A \text{ and } B"/> |
 
-<img src="https://latex.codecogs.com/gif.latex?O_t=\( A \in \mathbb{R}^{w \times x \times y \times z} \)" /> 
 
 Its vast potential makes it a valuable asset for diverse applications, from gaming to machine learning development, all within the Swift ecosystem. 
 
@@ -102,6 +104,7 @@ This function seamlessly transforms a 4D `MLMultiArray` into a structured 4D mat
 **Usage:** 
 
 ```swift
+import MatrixFlow
 // Generating a 4D MLMultiArray
 guard let multiArray = try? MLMultiArray(shape: shape, dataType: .float32) else { 
     fatalError("Failed to create MLMultiArray") 
@@ -119,13 +122,14 @@ for i in 0..<shape[0].intValue {
     }
 }
 
-let fourArray = convertMultiArrayToArray(multiArray)
+let fourArray = matrixFlow.convertMultiArrayToArray4d(multiArray)
 ```
 
-**Expected Result:** 
+**Expected Result of type :** 
 
 ```swift
-let result: [[[[Decimal]]]] = [[[[0, 1], [1, 2], [2, 3], [3, 4]], [[1, 2], [2, 3], [3, 4], [4, 5]], [[2, 3], [3, 4], [4, 5], [5, 6]]]]
+[[[[0, 1], [1, 2], [2, 3], [3, 4]], [[1, 2], [2, 3], [3, 4], [4, 5]], [[2, 3], [3, 4], [4, 5], [5, 6]]]]
+//of type [[[[Decimal]]]]
 ```
 
 ---
@@ -137,10 +141,14 @@ The function accepts two 2D matrices and performs matrix multiplication. For ins
 **Usage:**
 
 ```swift
-let matrixAA: [[Decimal]] = [[1, 2, 3], [4, 5, 6]]
-let matrixBB: [[Decimal]] = [[7, 8], [9, 10], [11, 12]]
+import MatrixFlow
+let matrixA: [[Decimal]] = [[1, 2, 3], [4, 5, 6]]
+let matrixB: [[Decimal]] = [[7, 8], [9, 10], [11, 12]]
 
-let result: [[Decimal]] = [[58, 64], [139, 154]]
+//Perform multiplication
+let result = matrixFlow.multiplyMatrices(matrixAA, matrixBB)
+
+//expected results of type [[Decimal]]: [[58, 64], [139, 154]]
 ```
 
 ---
@@ -148,6 +156,19 @@ let result: [[Decimal]] = [[58, 64], [139, 154]]
 **3. ReshapeToMatrix:** 
 
 This function accepts a 2D matrix and reshapes it, effectively halving its dimensions. For example, it can transform a (3, 25600) matrix into a (3, 160, 160) structure.
+
+``` swift
+import MatrixFlow
+let flattenedArray: [Decimal] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+let rows = 5
+let columns = 5
+// specifiy the number of rows and columns you'll need accordingly
+let result = matrixFlow.reshapeToMatrix(array: flattenedArray, rows: rows, cols: columns)
+
+//expected result of type [[Decimal]]
+// [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15], [16, 17, 18, 19, 20], [21, 22, 23, 24, 25]]
+
+```
 
 ---
 
@@ -158,13 +179,15 @@ Implements the sigmoid activation function to each cell of a matrix of type `[[D
 **Usage:**
 
 ```swift
+import MatrixFlow
 let matrix: [[Decimal]] = [
     [1.8, 2.0, 3.0], 
     [4.9, 5.0, 6.0], 
     [7.0, 8.0, 9.0]
 ]
 
-let result: [[Decimal]] = [[0.8581489350995122176, 0.880797077977882624, 0.9525741268224335872], [0.9926084586557181952, 0.9933071490757152768, 0.9975273768433655808], [0.9990889488055998464, 0.9996646498695335936, 0.9998766054240137216]]
+let result: [[Decimal]] = matrixFlow.sigmoidMatrix(matrix)
+//expected result: [[Decimal]] = [[0.8581489350995122176, 0.880797077977882624, 0.9525741268224335872], [0.9926084586557181952, 0.9933071490757152768, 0.9975273768433655808], [0.9990889488055998464, 0.9996646498695335936, 0.9998766054240137216]]
 ```
 
 **5. ConvertMultiArrayToArray:**
@@ -189,21 +212,26 @@ for i in 0..<shape[0].intValue {
         }
     }
 }
+let result: [[[Decimal]]] = matrixFlow.convertMultiArrayToArray(multiArray)
 
-let result: [[[Decimal]]] = [[[0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5]]]
+// expected result: [[[Decimal]]] = [[[0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5]]]
 ```
 
 ---
 
 **6. Transpose:**
 
+
 This function transposes a 2D matrix, essentially swapping its rows with columns.
 
 **Usage:**
+``` swift
+imort MatrixFlow
+let array: [[Decimal]] = [[0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5]]
 
-```swift
-let reducedArray: [[Decimal]] = [[0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5]]
-let result: [[Decimal]] = [[0, 1, 2], [1, 2, 3], [2, 3, 4], [3, 4, 5]]
+let result = matrixFlow.transpose(array)
+
+//expected result: [[Decimal]] = [[0, 1, 2], [1, 2, 3], [2, 3, 4], [3, 4, 5]]
 ```
 
 ---
@@ -215,8 +243,12 @@ This function reshapes a 3D matrix by merging its last two dimensions.
 **Usage:**
 
 ```swift
+import MatrixFlow
 let array: [[[Decimal]]] = [[[1.1, 1.2], [1.3, 1.4], [1.5, 1.6], [1.7, 1.8]], [[2.1, 2.2], [2.3, 2.4], [2.5, 2.6], [2.7, 2.8]], [[3.1, 3.2], [3.3, 3.4], [3.5, 3.6], [3.7, 3.8]]]
-let result: [[Decimal]] = [[1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8], [2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8], [3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8]]
+
+let result = matrixFlow.reshapeArray(inputArray: array)
+
+//expected result: [[Decimal]] = [[1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8], [2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8], [3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8]]
 ```
 
 ---
@@ -229,7 +261,14 @@ This function performs matrix slicing. Given a matrix, it retrieves the first fi
 
 ```swift
 let input: [[Decimal]] = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 50], [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 15], [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 16]]
-let result: [[Decimal]] = [[1, 2, 3, 4, 5], [11, 12, 13, 14, 15], [21, 22, 23, 24, 25]]
+
+//Specify the start and end index of the slicing
+let start = 0
+let end = 5
+
+let result = matrixFlow.slice(inputArray: input, start: 0, end: 5)
+
+//expected result: [[Decimal]] = [[1, 2, 3, 4, 5], [11, 12, 13, 14, 15], [21, 22, 23, 24, 25]]
 ```
 
 ---
@@ -241,28 +280,14 @@ This function is analogous to the numpy `hstack` operation. It horizontally stac
 **Usage:**
 
 ```swift
-let boxes: [[Decimal]] = [[1, 2, 3, 4, 5], [11, 12, 13, 14, 15], [21, 22, 23, 24, 25]]
-let masks: [[Decimal]] = [[6, 7, 8, 9, 10, 50], [16, 17, 18, 19, 20, 15], [26, 27, 28, 29, 30, 16]]
-let results: [[Decimal]] = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 50], [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 15], [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 16]]
+// boxes and masks are named for illustration purposes
+let arrayA: [[Decimal]] = [[1, 2, 3, 4, 5], [11, 12, 13, 14, 15], [21, 22, 23, 24, 25]]
+let arrayB: [[Decimal]] = [[6, 7, 8, 9, 10, 50], [16, 17, 18, 19, 20, 15], [26, 27, 28, 29, 30, 16]]
+
+let result = matrixFlow.combineMatrix(boxes: arrayA, masks: arrayB)
+
+//expected results: [[Decimal]] = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 50], [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 15], [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 16]]
 ```
-
-I'd be happy to provide you with a description of each function as a mathematical formula, but note that I can't produce actual drawn formulas within this text-based platform. However, I can describe them using LaTeX notation, which is a common way to represent mathematical expressions in a text format, and they can be rendered in various platforms that support LaTeX.
-
-Table re each function with the appropriate mathematical formula:
-
-| **Swift Function**       | **Mathematical Representation (LaTeX)** |
-|--------------------------|-----------------------------------------|
-| ConvertMultiArrayToArray4d | \( A \in \mathbb{R}^{w \times x \times y \times z} \) |
-| MultiplyMatrices        | \( C = A \times B \) where \( A \in \mathbb{R}^{m \times n} \) and \( B \in \mathbb{R}^{n \times p} \) |
-| ReshapeToMatrix         | \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) |
-| SigmoidMatrix           | \( S(x) = \frac{1}{1 + e^{-x}} \) |
-| ConvertMultiArrayToArray | \( A \in \mathbb{R}^{w \times x \times y} \) |
-| Transpose               | \( B = A^T \) where \( A \in \mathbb{R}^{m \times n} \) |
-| ReshapeArray            | \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) |
-| Slice                   | \( B = A_{[:k]} \) where \( k \) is the number of rows/columns to slice |
-| CombineMatrix           | \( C = \text{hstack}(A, B) \) for horizontally stacking matrices \( A \) and \( B \) |
-
-To visualize these formulas, you'd typically use a LaTeX rendering platform or software such as Overleaf, LaTeXiT, or even certain online platforms like MathJax on websites.
 
 
 
