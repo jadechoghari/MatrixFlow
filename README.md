@@ -9,17 +9,31 @@ MatrixFlow is strategically positioned to bridge this disconnect. It simplifies 
 
 Comparison table between the functions inside MatrixFlow and their similar Python functions, particularly with the `numpy` library, which is commonly used for matrix operations in Python.
 
-| **Swift Function**       | **Python (numpy) Equivalent** |
-|--------------------------|-------------------------------|
-| ConvertMultiArrayToArray4d | numpy.asarray() (with shape adjustment) |
-| MultiplyMatrices        | numpy.dot()                   |
-| ReshapeToMatrix         | numpy.reshape()               |
-| SigmoidMatrix           | 1 / (1 + numpy.exp(-matrix))  |
-| ConvertMultiArrayToArray | numpy.asarray() (with shape adjustment) |
-| Transpose               | numpy.transpose()            |
-| ReshapeArray            | numpy.reshape()               |
-| Slice                   | matrix[:5]                    |
-| CombineMatrix           | numpy.hstack()                |
+```latex
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Swift Function} & \textbf{Python (numpy) Equivalent} & \textbf{Math Representation} \\
+\hline
+ConvertMultiArrayToArray4d & \texttt{numpy.asarray()} (with shape adjustment) & \( A \in \mathbb{R}^{w \times x \times y \times z} \) \\
+\hline
+MultiplyMatrices & \texttt{numpy.dot()} & \( C = A \times B \) where \( A \in \mathbb{R}^{m \times n} \) and \( B \in \mathbb{R}^{n \times p} \) \\
+\hline
+ReshapeToMatrix & \texttt{numpy.reshape()} & \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) \\
+\hline
+SigmoidMatrix & \( \frac{1}{1 + \texttt{numpy.exp(-matrix)}} \) & \( S(x) = \frac{1}{1 + e^{-x}} \) \\
+\hline
+ConvertMultiArrayToArray & \texttt{numpy.asarray()} (with shape adjustment) & \( A \in \mathbb{R}^{w \times x \times y} \) \\
+\hline
+Transpose & \texttt{numpy.transpose()} & \( B = A^T \) where \( A \in \mathbb{R}^{m \times n} \) \\
+\hline
+ReshapeArray & \texttt{numpy.reshape()} & \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) \\
+\hline
+Slice & \texttt{matrix[:5]} & \( B = A_{[:k]} \) where \( k \) is the number of rows/columns to slice \\
+\hline
+CombineMatrix & \texttt{numpy.hstack()} & \( C = \text{hstack}(A, B) \) for horizontally stacking matrices \( A \) and \( B \) \\
+\hline
+\end{tabular}
+```
 
 
 Its vast potential makes it a valuable asset for diverse applications, from gaming to machine learning development, all within the Swift ecosystem. 
@@ -245,7 +259,23 @@ let masks: [[Decimal]] = [[6, 7, 8, 9, 10, 50], [16, 17, 18, 19, 20, 15], [26, 2
 let results: [[Decimal]] = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 50], [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 15], [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 16]]
 ```
 
+I'd be happy to provide you with a description of each function as a mathematical formula, but note that I can't produce actual drawn formulas within this text-based platform. However, I can describe them using LaTeX notation, which is a common way to represent mathematical expressions in a text format, and they can be rendered in various platforms that support LaTeX.
 
+Table re each function with the appropriate mathematical formula:
+
+| **Swift Function**       | **Mathematical Representation (LaTeX)** |
+|--------------------------|-----------------------------------------|
+| ConvertMultiArrayToArray4d | \( A \in \mathbb{R}^{w \times x \times y \times z} \) |
+| MultiplyMatrices        | \( C = A \times B \) where \( A \in \mathbb{R}^{m \times n} \) and \( B \in \mathbb{R}^{n \times p} \) |
+| ReshapeToMatrix         | \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) |
+| SigmoidMatrix           | \( S(x) = \frac{1}{1 + e^{-x}} \) |
+| ConvertMultiArrayToArray | \( A \in \mathbb{R}^{w \times x \times y} \) |
+| Transpose               | \( B = A^T \) where \( A \in \mathbb{R}^{m \times n} \) |
+| ReshapeArray            | \( B = \text{reshape}(A, (m, n \times o)) \) where \( A \in \mathbb{R}^{m \times n \times o} \) |
+| Slice                   | \( B = A_{[:k]} \) where \( k \) is the number of rows/columns to slice |
+| CombineMatrix           | \( C = \text{hstack}(A, B) \) for horizontally stacking matrices \( A \) and \( B \) |
+
+To visualize these formulas, you'd typically use a LaTeX rendering platform or software such as Overleaf, LaTeXiT, or even certain online platforms like MathJax on websites.
 
 
 
