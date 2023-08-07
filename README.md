@@ -197,6 +197,7 @@ This function is designed to convert an `MLMultiArray` with three dimensions int
 **Usage:**
 
 ```swift
+import MatrixFlow
 let shape: [NSNumber] = [1, 3, 4]
 
 guard let multiArray = try? MLMultiArray(shape: shape, dataType: .float32) else {
@@ -226,7 +227,7 @@ This function transposes a 2D matrix, essentially swapping its rows with columns
 
 **Usage:**
 ``` swift
-imort MatrixFlow
+import MatrixFlow
 let array: [[Decimal]] = [[0, 1, 2, 3], [1, 2, 3, 4], [2, 3, 4, 5]]
 
 let result = MatrixFlow.transpose(array)
@@ -260,6 +261,7 @@ This function performs matrix slicing. Given a matrix, it retrieves the first fi
 **Usage:**
 
 ```swift
+import MatrixFlow
 let input: [[Decimal]] = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 50], [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 15], [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 16]]
 
 //Specify the start and end index of the slicing
@@ -280,6 +282,7 @@ This function is analogous to the numpy `hstack` operation. It horizontally stac
 **Usage:**
 
 ```swift
+import MatrixFlow
 // boxes and masks are named for illustration purposes
 let arrayA: [[Decimal]] = [[1, 2, 3, 4, 5], [11, 12, 13, 14, 15], [21, 22, 23, 24, 25]]
 let arrayB: [[Decimal]] = [[6, 7, 8, 9, 10, 50], [16, 17, 18, 19, 20, 15], [26, 27, 28, 29, 30, 16]]
