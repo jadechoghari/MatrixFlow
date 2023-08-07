@@ -55,7 +55,7 @@ $ gem install cocoapods
 Next, create a `Podfile` in your project directory (if you haven't) and add:
 
 ```
-pod 'MatrixFlow', :git => 'https://github.com/YourGithubUsername/MatrixFlow.git'
+pod 'MatrixFlow', :git => 'https://github.com/jadechoghari/MatrixFlow.git'
 ```
 
 Now, run the following command:
