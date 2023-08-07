@@ -16,6 +16,7 @@
 		DDCC0A352A80406F004F4460 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCC0A332A80406F004F4460 /* Main.storyboard */; };
 		DDCC0A372A804070004F4460 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDCC0A362A804070004F4460 /* Assets.xcassets */; };
 		DDCC0A3A2A804070004F4460 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDCC0A382A804070004F4460 /* LaunchScreen.storyboard */; };
+		DDCC0A402A80425F004F4460 /* MatrixFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC0A3F2A80425F004F4460 /* MatrixFlow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		DDCC0A362A804070004F4460 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDCC0A392A804070004F4460 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDCC0A3B2A804070004F4460 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDCC0A3F2A80425F004F4460 /* MatrixFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixFlow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				DDCC0A122A803FF6004F4460 /* MatrixFlow.h */,
+				DDCC0A3F2A80425F004F4460 /* MatrixFlow.swift */,
 			);
 			path = MatrixFlow;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				TargetAttributes = {
 					DDCC0A0E2A803FF6004F4460 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					DDCC0A162A803FF6004F4460 = {
 						CreatedOnToolsVersion = 14.2;
@@ -259,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDCC0A402A80425F004F4460 /* MatrixFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +438,7 @@
 		DDCC0A222A803FF6004F4460 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -453,6 +459,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -461,6 +468,7 @@
 		DDCC0A232A803FF6004F4460 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -489,6 +497,7 @@
 		DDCC0A252A803FF6004F4460 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4BA78YYX49;
@@ -505,6 +514,7 @@
 		DDCC0A262A803FF6004F4460 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4BA78YYX49;
