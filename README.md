@@ -21,7 +21,7 @@ Comparison table between the functions inside MatrixFlow and their similar Pytho
 | Slice                   | `matrix[:5]` | \( B = A_{[:k]} \) where \( k \) is the number of rows/columns to slice |
 | CombineMatrix           | `numpy.hstack()` | \( C = \text{hstack}(A, B) \) for horizontally stacking matrices \( A \) and \( B \) |
 
-
+<img src="https://latex.codecogs.com/gif.latex?O_t=\( A \in \mathbb{R}^{w \times x \times y \times z} \)" /> 
 
 Its vast potential makes it a valuable asset for diverse applications, from gaming to machine learning development, all within the Swift ecosystem. 
 
