@@ -29,7 +29,7 @@ Its vast potential makes it a valuable asset for diverse applications, from gami
 
 **Target Audience**: Individuals seeking streamlined solutions to manipulate multiarray matrices and process CoreML outputs.
 
-Certainly, here's a brief guide on how to install the `MatrixFlow` library using different package managers:
+Additionally, here's a brief guide on how to install the `MatrixFlow` library using different package managers:
 
 ---
 
