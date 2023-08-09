@@ -17,8 +17,7 @@ Comparison table between the functions inside MatrixFlow and their similar Pytho
 | ConvertMultiArrayToArray4d | `numpy.asarray()` (with shape adjustment) | <img src="https://latex.codecogs.com/gif.latex?A%20\in%20\mathbb{R}^{w%20\times%20x%20\times%20y%20\times%20z}%20\" />  |
 | MultiplyMatrices        | `numpy.dot()` | <img src="https://latex.codecogs.com/gif.latex?C%20=%20A%20\times%20B%20\text{%20where%20}%20A%20\in%20\mathbb{R}^{m%20\times%20n}%20\text{%20and%20}%20B%20\in%20\mathbb{R}^{n%20\times%20p}" />  |
 | ReshapeToMatrix         | `numpy.reshape()` | <img src="https://latex.codecogs.com/gif.latex?C%20=%20B%20=%20\text{reshape}(A,%20(m,%20n%20\times%20o))%20\text{%20where%20}%20A%20\in%20\mathbb{R}^{m%20\times%20n%20\times%20o}" />  |
-| SigmoidMatrix           | `def sigmoid(x):
-    return 1 / (1 + np.exp(-x))` | <img src="https://latex.codecogs.com/gif.latex?S(x)%20=%20\frac{1}{1%20+%20e^{-x}}" /> |
+| SigmoidMatrix           | `def sigmoid(x):return 1 / (1 + np.exp(-x))` | <img src="https://latex.codecogs.com/gif.latex?S(x)%20=%20\frac{1}{1%20+%20e^{-x}}" /> |
 | ConvertMultiArrayToArray | `numpy.asarray()` (with shape adjustment) | <img src="https://latex.codecogs.com/gif.latex?\(%20B%20=%20\text{reshape}(A,%20(m,%20n%20\times%20o))%20\)%20where%20\(%20A%20\in%20\mathbb{R}^{m%20\times%20n%20\times%20o}%20\" /> |
 | Transpose               | `numpy.transpose()` | <img src="https://latex.codecogs.com/gif.latex?\(%20B%20=%20A^T%20\)%20where%20\(%20A%20\in%20\mathbb{R}^{m%20\times%20n}%20\)"/> |
 | ReshapeArray            | `numpy.reshape()` | <img src="https://latex.codecogs.com/gif.latex?\(%20B%20=%20\text{reshape}(A,%20(m,%20n%20\times%20o))%20\)%20where%20\(%20A%20\in%20\mathbb{R}^{m%20\times%20n%20\times%20o}%20\)"/> |
